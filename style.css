@@ -9,3 +9,12 @@ label, button, #guessWord, #essai, input {
     font-size: 2.5rem;
     margin-top: 2rem;
 }
+
+#wordLabel {
+    margin-left: 4rem;
+}
+
+#lettrePropose {
+    font-size: 2.5rem;
+    margin-top: 2rem;
+}

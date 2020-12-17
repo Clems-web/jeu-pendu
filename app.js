@@ -6,9 +6,13 @@ let motRandom = mots[Math.floor(Math.random()*mots.length)];
 let guessWord = document.getElementById("guessWord");
 let answerTableau = [];
 let essais = 10;
+let inputWord = document.getElementById("user-word");
+let buttonTry = document.getElementById("wordTry");
+let divPropose = document.getElementById("lettrePropose");
+divPropose.innerHTML = "lettre(s) essayée(s) : ";
 
 divEssai.innerHTML = "essais restant " + essais;
-console.log(motRandom);
+
 
 for (let x = 0; x < motRandom.length; x++) {
     answerTableau[x] = "_";
@@ -23,6 +27,7 @@ buttonVerify.addEventListener("click", function () {
         if (motRandom[x] === letter) {
             answerTableau[x] = letter;
             guessWord.innerHTML = answerTableau.join(" ");
+            divPropose.innerHTML += "<br>" + " - " + letter;
         }
         else if (!motRandom.includes(letter)) {
             found = false;
@@ -31,6 +36,7 @@ buttonVerify.addEventListener("click", function () {
     if (!found) {
         essais--;
         divEssai.innerHTML = "essais restant " + essais;
+        divPropose.innerHTML += "<br>" + " - " + letter;
     }
     if (essais <= 0) {
         alert("Perdu ! Le mot était : " + motRandom);
@@ -40,8 +46,22 @@ buttonVerify.addEventListener("click", function () {
         alert("Gagné !");
         window.location.reload();
     }
+
 })
 
+buttonTry.addEventListener("click", function () {
+    let word = inputWord.value;
+
+    if (word === motRandom) {
+        alert("Gagné !");
+        window.location.reload();
+    }
+
+    else if (word !== motRandom) {
+        alert("Perdu ! Le mot était : " + motRandom);
+        window.location.reload();
+    }
+})
 
 
 
