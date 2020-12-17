@@ -22,7 +22,6 @@ buttonVerify.addEventListener("click", function () {
     for (let x = 0; x < motRandom.length; x++) {
         if (motRandom[x] === letter) {
             answerTableau[x] = letter;
-            console.log(answerTableau);
             guessWord.innerHTML = answerTableau.join(" ");
         }
         else if (!motRandom.includes(letter)) {
